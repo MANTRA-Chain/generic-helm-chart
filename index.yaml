@@ -2,7 +2,32 @@ apiVersion: v1
 entries:
   generic-helm-chart:
   - apiVersion: v2
+    appVersion: 0.4.4
+    created: "2025-07-19T07:21:17.262015312Z"
+    description: A Generic Helm Chart to support easy deployment of micro-services
+    digest: 9891847e9e93345e1d03fed064c6467d11dfcc62faba9e83706568e745b8ba01
+    icon: https://helm.sh/img/helm.svg
+    keywords:
+    - generic-helm-chart
+    - micro-service
+    maintainers:
+    - email: marcus.cheng@hextrust.com
+      name: mkcc6
+      url: https://github.com/mkcc6
+    - email: phuc.truong@hextrust.com
+      name: ryanth2022
+      url: https://github.com/ryanth2022
+    - email: avbaideme@proton.me
+      name: AaronForce1
+      url: https://github.com/aaronforce1
+    name: generic-helm-chart
+    type: application
+    urls:
+    - https://github.com/MANTRA-Chain/generic-helm-chart/releases/download/generic-helm-chart-0.4.4/generic-helm-chart-0.4.4.tgz
+    version: 0.4.4
+  - apiVersion: v2
     appVersion: 0.4.3
+    created: "0001-01-01T00:00:00Z"
     description: A Generic Helm Chart to support easy deployment of micro-services
     icon: https://helm.sh/img/helm.svg
     keywords:
@@ -23,4 +48,4 @@ entries:
     urls:
     - https://github.com/MANTRA-Chain/generic-helm-chart/releases/download/generic-helm-chart-0.4.3/generic-helm-chart-0.4.3.tgz
     version: 0.4.3
-generated: "2024-07-11T16:18:57.684873689Z"
+generated: "2025-07-19T07:21:17.26202492Z"

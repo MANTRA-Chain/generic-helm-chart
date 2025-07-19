@@ -107,6 +107,28 @@ spec:
                 {{- toYaml . | nindent 16 }}
               {{- end }}
               {{- end }}
+              {{- if $cronjob.volumeMounts }}
+              {{- with $cronjob.volumeMounts }}
+              volumeMounts:
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+              {{- else if $default.volumeMounts }}
+              {{- with $default.volumeMounts }}
+              volumeMounts:
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+              {{- end }}
           restartPolicy: {{ if $cronjob.restartPolicy }}{{ $cronjob.restartPolicy }}{{ else }}{{ $default.restartPolicy }}{{ end }}
+          {{- if $cronjob.volumes }}
+          {{- with $cronjob.volumes }}
+          volumes:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- else if $default.volumes }}
+          {{- with $default.volumes }}
+          volumes:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- end }}
 {{- end }}
 {{- end }}

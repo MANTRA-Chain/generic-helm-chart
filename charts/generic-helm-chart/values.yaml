@@ -202,9 +202,18 @@ additionalCronjobs:
   #       suffix: config
   #     - type: secret
   #       suffix: secret
+  #   volumeMounts:
+  #     - mountPath: /app/secrets/
+  #       name: example-secret
+  #   volumes:
+  #     - name: example-secret
+  #       secret:
+  #         secretName: k8s-app-secret
   # cronjobs:
   # - name: example-cronjob
   #   schedule: "10,20,30 13 * * *"
+  # - name: example-cronjob-2
+  #   schedule: "10,20,30 14 * * *"
 
 configMap:
   config:

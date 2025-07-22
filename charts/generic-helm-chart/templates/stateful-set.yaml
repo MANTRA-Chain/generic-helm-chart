@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: {{ include "app.fullname" . }}
+  name: {{ .Values.StatefulSet.nameOverride | default (include "app.fullname" .) }}
   {{- if .Values.rustDBMigration.enabled }}
   annotations:
     argocd.argoproj.io/sync-wave: "4"

@@ -95,7 +95,8 @@ additionalDeployments: {}
   #     enabled: false
 
 StatefulSet:
-  enabled: false
+  enabled: true
+  # nameOverride: ""
   # replicaCount: 1
   # imagePullSecrets:
   #   - name: regcred
@@ -131,6 +132,12 @@ StatefulSet:
   # volumeMounts:
   #   - mountPath: "/db"
   #     name: sqlite3
+  # persistenceStorage:
+  #   - name: sqlite3
+  #     accessModes: ["ReadWriteOnce"]
+  #     storageClass: standard
+  #     volumeMode: Filesystem
+  #     size: 500M
   # persistenceStorage:
   #   name : sqlite3
   #   accessMode: ["ReadWriteOnce"]

@@ -29,6 +29,7 @@ pdb:
   minAvailable: 50%
 
 deployment:
+  nameOverride: ""
   enabled: true
   replicaCount: 1
   imagePullSecrets: []

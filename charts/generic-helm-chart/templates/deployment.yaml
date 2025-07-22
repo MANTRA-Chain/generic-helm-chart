@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "app.fullname" . }}
+  name: {{ .Values.deployment.nameOverride | default (include "app.fullname" .) }}
   {{- if or .Values.goDBMigration.enabled .Values.deployment.annotations}}
   annotations:
   {{- if .Values.goDBMigration.enabled }}

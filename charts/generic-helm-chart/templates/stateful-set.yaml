@@ -75,7 +75,7 @@ spec:
           {{- if .Values.StatefulSet.env }}
           {{- range $k, $v := .Values.StatefulSet.env }}
           - name: {{ $k }}
-            value: {{ $v }}
+            value: {{ $v | quote }}
           {{- end }}
           {{- end }}
           {{- if .Values.StatefulSet.envFrom }}
@@ -124,8 +124,27 @@ spec:
       volumes:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  {{- if .Values.StatefulSet.persistenceStorage }}
   volumeClaimTemplates:
-  {{- with .Values.StatefulSet.persistenceStorage }}
-    {{- toYaml . | nindent 4 }}
+  {{- range .Values.StatefulSet.persistenceStorage }}
+  - metadata:
+      name: {{ .name }}
+      {{- with .labels }}
+      labels:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      accessModes:
+        {{- toYaml .accessModes | nindent 8 }}
+      resources:
+        requests:
+          storage: {{ .size }}
+      {{- if .storageClassName }}
+      storageClassName: {{ .storageClassName }}
+      {{- end }}
+      {{- if .volumeMode }}
+      volumeMode: {{ .volumeMode }}
+      {{- end }}
+  {{- end }}
   {{- end }}
 {{- end }}

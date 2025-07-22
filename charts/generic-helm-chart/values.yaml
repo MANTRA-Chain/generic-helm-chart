@@ -8,6 +8,10 @@ environment: ""
 # commonLabels:
 #   label: label
 
+# Default image tag, can be overridden by specific deployments, cronjobs or statefulsets
+global:
+  imageTag: "" 
+
 serviceAccount:
   create: true
   annotations: {}
@@ -193,7 +197,7 @@ additionalCronjobs:
   #     - name: regcred
   #   image:
   #     repository: registry.gitlab.int.hextech.io/metazen/extract-new-users-one-day
-  #     tag: "v1.0.1"
+  #     tag: ""
   #     pullPolicy: IfNotPresent
   #   restartPolicy: Never
   #   failedJobsHistoryLimit: 3

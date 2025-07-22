@@ -95,7 +95,7 @@ additionalDeployments: {}
   #     enabled: false
 
 StatefulSet:
-  enabled: true
+  enabled: false
   # nameOverride: ""
   # replicaCount: 1
   # imagePullSecrets:

@@ -38,7 +38,7 @@ spec:
           {{- end }}
           containers:
             - name: {{ include "app.fullname" $ }}
-              image: {{ if ($cronjob.image).repository }}{{ $cronjob.image.repository }}{{ else }}{{ $default.image.repository }}{{ end }}:{{ if ($cronjob.image).tag }}{{ $cronjob.image.tag }}{{ else }}{{ $default.image.tag }}{{ end }}
+              image: {{ if ($cronjob.image).repository }}{{ $cronjob.image.repository }}{{ else }}{{ $default.image.repository }}{{ end }}:{{ if $.Values.global.imageTag }}{{ $.Values.global.imageTag }}{{ else if ($cronjob.image).tag }}{{ $cronjob.image.tag | default $.Chart.AppVersion }}{{ else }}{{ $default.image.tag | default $.Chart.AppVersion }}{{ end }}
               imagePullPolicy: {{ if ($cronjob.image).pullPolicy }}{{ $cronjob.image.pullPolicy }}{{ else }}{{ $default.image.pullPolicy }}{{ end }}
               {{- if $cronjob.command  }}
               command:
